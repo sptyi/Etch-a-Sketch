@@ -1,22 +1,30 @@
 const container = document.querySelector('#container');
 const btnDiv = document.createElement('div');
+var resetBtn = document.createElement('button');
 container.appendChild(btnDiv);
-createDivGrid();
-createResetBtn();
+window.onload = function () {
+	createDivGrid();
+	createResetBtn();
+};
 
 function createResetBtn() {
-	var resetBtn = document.createElement('button');
 	btnDiv.appendChild(resetBtn);
 	resetBtn.innerHTML = 'Reset Canvas';
 	resetBtn.style.cssText =
-		'outline: none; margin-bottom: 15px; margin-top: 15px; padding-left: 36%; padding-right: 30%;';
+		'outline: none; margin-bottom: 15px; margin-top: 15px; padding-left: 33%; padding-right: 33%;';
 }
 
 resetBtn.addEventListener('click', () => {
 	var squares = document.getElementsByClassName('square');
 	let i;
 	for (i = 0; i < squares.length; i++) {
-		squares[i].style.cssText = 'background-color: transparent;';
+		squares[i].style.cssText += 'background-color: transparent;';
+	}
+	var gridSize = prompt(
+		'What size grid would you like to use for your canvas?'
+	);
+	if ((gridSize = null)) {
+		gridSize = 256;
 	}
 });
 
