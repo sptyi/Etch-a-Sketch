@@ -1,1 +1,11 @@
+* {
+	background-color: #333;
+	color: whitesmoke;
+	align-items: center;
+}
 
+#container {
+	width: 272px;
+	margin-left: auto;
+	margin-right: auto;
+}
