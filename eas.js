@@ -14,7 +14,7 @@ function createResetBtn() {
 	btnDiv.appendChild(resetBtn);
 	resetBtn.innerHTML = 'Reset Canvas';
 	resetBtn.style.cssText =
-		'outline: none; margin-bottom: 15px; margin-top: 15px;';
+		'outline: none; margin-bottom: 25px; margin-top: 25px;';
 }
 
 resetBtn.addEventListener('click', () => {
@@ -52,7 +52,7 @@ function createDivGrid(gridSize) {
 		container.appendChild(div);
 		div.classList.add('square');
 		div.style.cssText =
-			'flex-grow: 500px; max-width: 500px; min-width: 7px; max-height: 500px; min-height: 7px; border: 1px solid whitesmoke;';
+			'flex: 1 1 auto; min-width: 1%; min-height: 1%; max-width: 100%; max-height: 100%; border: 1px solid green';
 		div.addEventListener('mouseover', () => {
 			div.style.cssText += 'background-color: red;';
 		});
