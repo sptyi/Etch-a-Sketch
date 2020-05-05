@@ -8,10 +8,8 @@
 #container {
 	width: 500px;
 	height: 500px;
-	display: flex;
-	flex-wrap: wrap;
-	overflow-x: hidden;
-	overflow-y: hidden;
-	align-content: flex-start;
+	display: grid;
 	border: 1px solid whitesmoke;
+	grid-template-columns: repeat(auto-fill, minmax(1px, 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(1px, 1fr));
 }

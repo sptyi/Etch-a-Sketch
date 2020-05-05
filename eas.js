@@ -5,6 +5,7 @@ body.insertBefore(btnDiv, body.childNodes[1]);
 const resetBtn = document.createElement('button');
 const container = document.querySelector('#container');
 var gridSize;
+var squareSize;
 
 createResetBtn();
 setGridSize();
@@ -51,10 +52,18 @@ function createDivGrid(gridSize) {
 		const div = document.createElement('div' + i);
 		container.appendChild(div);
 		div.classList.add('square');
-		div.style.cssText =
-			'flex: 1 1 auto; min-width: 1%; min-height: 1%; max-width: 100%; max-height: 100%; border: 1px solid green';
 		div.addEventListener('mouseover', () => {
-			div.style.cssText += 'background-color: red;';
+			div.style.cssText += 'background-color: whitesmoke;';
 		});
 	}
+	setGridProperties();
+}
+
+function setGridProperties() {
+	squareSize = 500 / gridSize;
+	document.querySelector('.square').style.minWidth += squareSize + 'px';
+	document.querySelector('.square').style.minHeight += squareSize + 'px';
+	document.querySelector('.square').style.maxWidth += '500px';
+	document.querySelector('.square').style.maxHeight += '500px';
+	document.querySelector('.square').style.border += '1px solid blue';
 }
