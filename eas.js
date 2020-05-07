@@ -1,7 +1,7 @@
 document.getElementsByTagName("body")[0].setAttribute("id", "body");
 const body = document.querySelector("#body");
 const btnDiv = document.createElement("div");
-body.insertBefore(btnDiv, body.childNodes[4]);
+body.insertBefore(btnDiv, body.childNodes[1]);
 const resetBtn = document.createElement("button");
 const container = document.querySelector("#container");
 var gridSize;
