@@ -1,9 +1,9 @@
-document.getElementsByTagName('body')[0].setAttribute('id', 'body');
-const body = document.querySelector('#body');
-const btnDiv = document.createElement('div');
+document.getElementsByTagName("body")[0].setAttribute("id", "body");
+const body = document.querySelector("#body");
+const btnDiv = document.createElement("div");
 body.insertBefore(btnDiv, body.childNodes[1]);
-const resetBtn = document.createElement('button');
-const container = document.querySelector('#container');
+const resetBtn = document.createElement("button");
+const container = document.querySelector("#container");
 var gridSize;
 var squareSize;
 var squaresPerSide;
@@ -12,7 +12,7 @@ createResetBtn();
 
 function createResetBtn() {
 	btnDiv.appendChild(resetBtn);
-	resetBtn.innerHTML = 'Reset Canvas';
+	resetBtn.innerHTML = "Reset Canvas";
 	resetBtn.style.cssText =
 		'outline: none; margin-bottom: 50px; margin-top: 25px; padding: 5px; border-radius: 7px';
 	setGridSize();
