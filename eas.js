@@ -6,41 +6,40 @@ const resetBtn = document.createElement('button');
 const container = document.querySelector('#container');
 var gridSize;
 var squareSize;
+var squaresPerSide;
 
 createResetBtn();
-setGridSize();
-createDivGrid(gridSize);
 
 function createResetBtn() {
 	btnDiv.appendChild(resetBtn);
 	resetBtn.innerHTML = 'Reset Canvas';
 	resetBtn.style.cssText =
-		'outline: none; margin-bottom: 25px; margin-top: 25px;';
-}
-
-resetBtn.addEventListener('click', () => {
-	var squares = document.getElementsByClassName('square');
-	let i;
-	for (i = 0; i < squares.length; i++) {
-		squares[i].style.cssText += 'background-color: transparent;';
-	}
+		'outline: none; margin-bottom: 50px; margin-top: 25px; padding: 5px; border-radius: 7px';
 	setGridSize();
 	createDivGrid(gridSize);
-});
+	resetBtn.addEventListener('click', () => {
+		setGridSize();
+		createDivGrid(gridSize);
+	});
+}
 
 function setGridSize() {
-	gridSize = Math.pow(
-		prompt(
-			'What size grid would you like to use for your canvas? \n (For instance, entering 16 would give you a 16x16 square canvas.)'
-		),
-		2
+	squaresPerSide = prompt(
+		'What size grid would you like to use for your canvas? \n (For instance, entering 16 would give you a 16x16 square canvas.)'
 	);
-	if (gridSize == '') {
-		gridSize = 256;
-	} else if (gridSize) {
+	console.log(squaresPerSide);
+	if (squaresPerSide == '') {
+		squaresPerSide = 16;
+		gridSize = Math.pow(squaresPerSide, 2);
+		console.log(gridSize);
+	} else if (squaresPerSide) {
+		gridSize = Math.pow(squaresPerSide, 2);
+		console.log(gridSize);
 		return;
 	} else {
-		gridSize = 256;
+		squaresPerSide = 16;
+		gridSize = Math.pow(squaresPerSide, 2);
+		console.log(gridSize);
 	}
 }
 
@@ -49,21 +48,37 @@ function createDivGrid(gridSize) {
 		container.removeChild(container.lastChild);
 	}
 	for (i = 0; i < gridSize; i++) {
-		const div = document.createElement('div' + i);
+		const div = document.createElement('div');
 		container.appendChild(div);
 		div.classList.add('square');
 		div.addEventListener('mouseover', () => {
-			div.style.cssText += 'background-color: whitesmoke;';
+			div.style.cssText += 'background-color: black;';
 		});
+		setGridProperties(squareSize);
 	}
-	setGridProperties();
 }
 
-function setGridProperties() {
-	squareSize = 500 / gridSize;
-	document.querySelector('.square').style.minWidth += squareSize + 'px';
-	document.querySelector('.square').style.minHeight += squareSize + 'px';
-	document.querySelector('.square').style.maxWidth += '500px';
-	document.querySelector('.square').style.maxHeight += '500px';
-	document.querySelector('.square').style.border += '1px solid blue';
+function setGridProperties(squareSize) {
+	squareSize = 500 / squaresPerSide;
+	console.log(squareSize);
+	setContainerProperties();
+	var squareClass = document.querySelectorAll('.square');
+	squareClass.forEach((element) => {
+		element.style.minWidth += squareSize + 'px';
+		element.style.minHeight += squareSize + 'px';
+		element.style.maxWidth += '500px';
+		element.style.maxHeight += '500px';
+		element.style.backgroundColor += '#777';
+	});
+}
+
+function setContainerProperties() {
+	container.style.width = '500px';
+	container.style.height = '500px';
+	container.style.display = 'grid';
+	container.style.border = '50px solid #A00';
+	container.style.borderRadius = '20px';
+	container.style.placeItems = 'start';
+	container.style.gridTemplateColumns = `repeat(${squaresPerSide}, 1fr)`;
+	container.style.gridTemplateRows = `repeat(${squaresPerSide}, 1fr)`;
 }
