@@ -1,10 +1,19 @@
+const h1 = document.createElement('h1');
+h1.textContent = '- Etch-a-Sketch -';
+h1.style.cssText =
+	'font-size: 45px; margin-top: 25px; text-shadow: 2px 2px 5px #000';
 document.getElementsByTagName('body')[0].setAttribute('id', 'body');
 const body = document.querySelector('#body');
+body.insertBefore(h1, body.childNodes[0]);
 const btnDiv = document.createElement('div');
 body.insertBefore(btnDiv, body.childNodes[1]);
+const container = document.createElement('div');
+body.insertBefore(container, body.childNodes[2]);
 const resetBtn = document.createElement('button');
-const container = document.querySelector('#container');
-const loading = document.querySelector('.loading');
+btnDiv.appendChild(resetBtn);
+const loading = document.createElement('div');
+body.insertBefore(loading, body.childNodes[3]);
+document.getElementsByTagName('div')[2].setAttribute('id', 'loading');
 var gridSize;
 var squareSize;
 var squaresPerSide;
@@ -12,13 +21,13 @@ var squaresPerSide;
 createResetBtn();
 
 function createResetBtn() {
-	btnDiv.appendChild(resetBtn);
-	resetBtn.innerHTML = 'Reset Canvas';
+	resetBtn.textContent = 'Reset Canvas';
 	resetBtn.style.cssText =
-		'outline: none; margin-bottom: 50px; margin-top: 25px; padding: 5px; border-radius: 7px';
+		'outline: none; margin-bottom: 25px; margin-top: 50px; padding: 7px; border-radius: 7px; box-shadow: 2px 2px 5px #000;';
 	squaresPerSide = 16;
 	gridSize = 256;
 	createDivGrid(gridSize);
+	setLoadingProperties();
 	resetBtn.addEventListener('click', () => {
 		setGridSize();
 		createDivGrid(gridSize);
@@ -102,7 +111,22 @@ function setContainerProperties() {
 	container.style.display = 'grid';
 	container.style.border = '50px solid #A00';
 	container.style.borderRadius = '20px';
+	container.style.boxShadow = '2px 2px 5px #000';
 	container.style.placeItems = 'start';
 	container.style.gridTemplateColumns = `repeat(${squaresPerSide}, 1fr)`;
 	container.style.gridTemplateRows = `repeat(${squaresPerSide}, 1fr)`;
+}
+
+function setLoadingProperties() {
+	loading.style.display = 'none';
+	loading.style.position = 'absolute';
+	loading.style.left = '50%';
+	loading.style.top = '485px';
+	loading.style.margin = '-75px 0 0 -75px';
+	loading.style.border = '10px solid #444';
+	loading.style.borderRadius = '50%';
+	loading.style.borderTop = '10px solid #00a';
+	loading.style.width = '125px';
+	loading.style.height = '125px';
+	loading.style.animation = 'spin 1.5s ease infinite';
 }
