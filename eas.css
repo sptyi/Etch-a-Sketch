@@ -13,3 +13,19 @@
 		transform: rotate(360deg);
 	}
 }
+
+a:link {
+	color: blue;
+}
+
+a:visited {
+	color: blue;
+}
+
+a:hover {
+	color: ghostwhite;
+}
+
+a:active {
+	color: ghostwhite;
+}
