@@ -15,11 +15,12 @@
 }
 
 a:link {
-	color: blue;
+	color: black;
+	text-decoration: none;
 }
 
 a:visited {
-	color: blue;
+	color: black;
 }
 
 a:hover {

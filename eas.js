@@ -17,7 +17,7 @@ document.getElementsByTagName('div')[2].setAttribute('id', 'loading');
 const footer = document.createElement('footer');
 footer.innerHTML = 'created by <a href="https://github.com/sptyi">sptyi</a>';
 footer.style.cssText =
-	'display: inline-block; margin-top: 25px; font-size: 20px';
+	'display: inline-block; margin: 25px 0px; font-size: 20px';
 body.appendChild(footer);
 var gridSize;
 var squareSize;
