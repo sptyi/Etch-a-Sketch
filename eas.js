@@ -52,14 +52,14 @@ function setGridSize() {
 	} else if (squaresPerSide == '') {
 		squaresPerSide = 16;
 		gridSize = Math.pow(squaresPerSide, 2);
-		createLoading();
+		showLoading();
 	} else if (squaresPerSide) {
 		gridSize = Math.pow(squaresPerSide, 2);
-		createLoading();
+		showLoading();
 	} else {
 		squaresPerSide = 16;
 		gridSize = Math.pow(squaresPerSide, 2);
-		createLoading();
+		showLoading();
 	}
 }
 
@@ -88,7 +88,7 @@ async function hideLoading() {
 	loading.style.display = 'none';
 }
 
-function createLoading() {
+function showLoading() {
 	loading.style.display = 'block';
 }
 
