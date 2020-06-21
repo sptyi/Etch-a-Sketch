@@ -44,7 +44,6 @@ function setGridSize() {
 	squaresPerSide = prompt(
 		'What size grid would you like to use for your canvas? \n (For instance, entering 16 would give you a 16x16 square canvas.)'
 	);
-	console.log(squaresPerSide);
 	if (squaresPerSide > 500) {
 		alert(
 			'The canvas grid size cannot exceed 500. \n Please enter a number less than 501.'
@@ -53,16 +52,13 @@ function setGridSize() {
 	} else if (squaresPerSide == '') {
 		squaresPerSide = 16;
 		gridSize = Math.pow(squaresPerSide, 2);
-		console.log(gridSize);
 		createLoading();
 	} else if (squaresPerSide) {
 		gridSize = Math.pow(squaresPerSide, 2);
-		console.log(gridSize);
 		createLoading();
 	} else {
 		squaresPerSide = 16;
 		gridSize = Math.pow(squaresPerSide, 2);
-		console.log(gridSize);
 		createLoading();
 	}
 }
@@ -98,7 +94,6 @@ function createLoading() {
 
 function setGridProperties(squareSize) {
 	squareSize = 500 / squaresPerSide;
-	console.log(squareSize);
 	setContainerProperties();
 	var squareClass = document.querySelectorAll('.square');
 	squareClass.forEach((element) => {
