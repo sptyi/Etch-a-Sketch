@@ -79,7 +79,7 @@ function createDivGrid(gridSize) {
 				setGridProperties(squareSize);
 			}
 			resolve('loaded');
-		}, 1000);
+		}, 10);
 	});
 }
 
