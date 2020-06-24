@@ -59,7 +59,7 @@ function setGridSize() {
 	} else {
 		squaresPerSide = 16;
 		gridSize = Math.pow(squaresPerSide, 2);
-		showLoading();
+		// showLoading();
 	}
 }
 
@@ -71,15 +71,15 @@ function createDivGrid(gridSize) {
 		setTimeout(() => {
 			for (i = 0; i < gridSize; i++) {
 				const div = document.createElement('div');
-				container.appendChild(div);
 				div.classList.add('square');
+				container.appendChild(div);
 				div.addEventListener('mouseover', () => {
 					div.style.cssText += 'background-color: black;';
 				});
 				setGridProperties(squareSize);
 			}
 			resolve('loaded');
-		}, 10);
+		}, 0);
 	});
 }
 
